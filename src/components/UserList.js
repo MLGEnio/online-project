@@ -6,9 +6,9 @@ function UserList(props) {
       {props.users.map((el) => {
         return (
           <div key={el.id}>
-            <p>User: {`${el.fname} ${el.lname}`}</p>
-            <p>{`Email: ${el.email}`}</p>
-            <p>Hobbies:</p>
+            <h5>User: {`${el.fname} ${el.lname}`}</h5>
+            <h5>{`Email: ${el.email}`}</h5>
+            <h5>Hobbies:</h5>
             <ul key={el.id}>
               {el.hobbies.map((el) => {
                 return <li>{el.label}</li>;
