@@ -21,8 +21,16 @@ function AddUser(props) {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    setFormErrors(validate(formValues));
-    props.userData(formValues);
+    const valid = validate(formValues);
+    setFormErrors(valid);
+    if (
+      formValues.fname !== "" &&
+      formValues.lname !== "" &&
+      formValues.email !== "" &&
+      formValues.hobbies.length !== 0
+    ) {
+      props.userData(formValues);
+    }
   };
   const options = [
     { value: "guitar", label: "guitar" },
@@ -53,6 +61,9 @@ function AddUser(props) {
       errors.email = "Email is required";
     } else if (!regexEmail.test(values.email)) {
       errors.email = "Not Valid Email";
+    }
+    if (values.hobbies.length === 0) {
+      errors.hobbies = "Hobbies is required";
     }
     return errors;
   };
@@ -103,6 +114,7 @@ function AddUser(props) {
             onChange={changeHandler}
             name="hobbies"
           />
+          <p>{formErrors.hobbies} </p>
         </Form.Group>
       </Row>
       <Row></Row>
