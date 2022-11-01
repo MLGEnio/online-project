@@ -25,9 +25,13 @@ function AddUser(props) {
     props.userData(formValues);
   };
   const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
+    { value: "guitar", label: "guitar" },
+    { value: "swimming", label: "swimming" },
+    { value: "games", label: "games" },
+    { value: "football", label: "football" },
+    { value: "voleyball", label: "voleyball" },
+    { value: "basketball", label: "basketball" },
+    { value: "violin", label: "violin" },
   ];
 
   const validate = (values) => {
@@ -54,7 +58,6 @@ function AddUser(props) {
   };
   return (
     <Form onSubmit={submitHandler}>
-      <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
       <Row className="mb-3">
         <Form.Group as={Col} md="12">
           <Form.Label>First name</Form.Label>
